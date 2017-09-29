@@ -507,11 +507,8 @@
                     <div class="tab-pane" role="tabpanel" id="images">
                         <div id="main-wraper" class="main-wraper">
                             <select class="form-control form-group" id="test">
-                                <option>1.1</option>
-                                <option>2.1</option>
-                                <option>3.1</option>
-                                <option>4.1</option>
-                                <option>5.1</option>
+                                <option>1706</option>
+                                <option>1709</option>
                             </select>
                             <div class="tableWrapper">
                                 <table>
@@ -536,13 +533,15 @@
         e.preventDefault()
         $(this).tab('show')
     });
+    var version= $("#test").children('option:selected').val()
+    var url='download'+version+'.json?ver=1.1'
     $("#test").change(function(){
         var version=$(this).children('option:selected').val()
         var url='download'+version+'.json?ver=1.1'
         $(".tableWrapper tbody").html('')
         getImage(url)
     })
-    getImage('download1.1.json?ver=1.1')
+    getImage(url)
     function getImage(url){
         var url='json/'+url
         $.get(url,function(rs){
