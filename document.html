@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -19,6 +18,9 @@
         th, td {
             padding: 5px;
             text-align: left;
+        }
+        .resiframe{
+            height:1300px;
         }
     </style>
 </head>
@@ -131,18 +133,22 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
     var version= $("#resHistory").children('option:selected').val()
-    var url='rev/rev_'+version+'.html'
+    var url='lsdk_revs/lsdk'+version+'.html'
+    getImage(url)
     $("#resHistory").change(function(){
         var version=$(this).children('option:selected').val()
-        var url='rev/rev_'+version+'.html'
+        var url='lsdk_revs/lsdk'+version+'.html'
         getImage(url)
     })
-    getImage(url)
     function getImage(url){
-        var resHistoryIframe=' <iframe src="'+url+'" width="750" height="2000" style="border:0px" scrolling="no" class="resiframe"></iframe>'
+        var resHistoryIframe=' <iframe src="'+url+'"  width="100%" id="resiframe" height="1320px" style="border:0px" scrolling="no"></iframe>'
         $(".releaseHistory").html(resHistoryIframe)
     }
-
+//    function iframeLoad() {
+//        var mainheight = $("#resiframe").contents().find("body").height()+30;
+//        console.log(mainheight)
+//        $("#resiframe").height(mainheight);
+//    }
 </script>
 </body>
 
